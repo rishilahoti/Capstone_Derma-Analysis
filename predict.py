@@ -18,7 +18,7 @@ for i in tqdm(dict.keys()):
     for img_path in images:
         img = image.load_img(fname+img_path, target_size=(299, 299))
         x = img_to_array(img)
-        x = K.applications.xception.preprocess_input(x)
+        x = tf.keras.applications.xception.preprocess_input(x)
 
     prediction = model.predict(np.array([x]))[0]
     test_pred = np.argmax(prediction)
